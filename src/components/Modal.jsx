@@ -38,9 +38,13 @@ const Modal = () => {
         <div className="modal__video-container">
           <img
             className="modal__poster"
-            src={selectedMovie.backdrop_path 
-              ? `https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`
-              : `https://image.tmdb.org/t/p/w780${selectedMovie.poster_path}`
+            src={selectedMovie.backdrop_path?.startsWith('http')
+              ? selectedMovie.backdrop_path
+              : selectedMovie.backdrop_path
+                ? `https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`
+                : selectedMovie.poster_path?.startsWith('http')
+                  ? selectedMovie.poster_path
+                  : `https://image.tmdb.org/t/p/w780${selectedMovie.poster_path}`
             }
             alt={selectedMovie.title || selectedMovie.name}
           />
