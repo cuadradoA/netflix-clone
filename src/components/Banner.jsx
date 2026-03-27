@@ -26,22 +26,17 @@ const Banner = ({ movie }) => {
     <header 
       className="banner"
       style={{
-        backgroundImage: `url(${movie.backdrop_path})`,
+        backgroundImage: `url(${movie.poster_path?.startsWith('http')
+          ? movie.poster_path
+          : movie.poster_path
+            ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+            : movie.backdrop_path
+        })`,
       }}
     >
       <div className="banner__fade-top" />
       
       <div className="banner__contents">
-        <img
-          className="banner__poster"
-          src={movie.poster_path?.startsWith('http')
-            ? movie.poster_path
-            : movie.poster_path
-              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-              : ''
-          }
-          alt={movie.title || movie.name}
-        />
         <div className="banner__info">
           <h1 className="banner__title">
             {movie.title || movie.name}
