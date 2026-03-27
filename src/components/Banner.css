@@ -46,11 +46,20 @@
   position: relative;
   padding-top: 180px;
   padding-left: 40px;
-  max-width: 650px;
+  max-width: 900px;
   height: calc(100% - 150px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.banner__poster {
+  width: 220px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
 }
 
 .banner__info {
@@ -179,6 +188,11 @@
     padding-left: 30px;
   }
 
+  .banner__poster {
+    width: 180px;
+    height: 270px;
+  }
+
   .banner__title {
     font-size: 2.5rem;
   }
@@ -205,6 +219,13 @@
     padding-left: 20px;
     padding-right: 20px;
     max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .banner__poster {
+    width: 120px;
+    height: 180px;
   }
 
   .banner__title {
@@ -239,6 +260,10 @@
 @media (max-width: 480px) {
   .banner {
     height: 55vh;
+  }
+
+  .banner__poster {
+    display: none;
   }
 
   .banner__title {
