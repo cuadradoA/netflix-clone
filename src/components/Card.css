@@ -1,0 +1,211 @@
+/**
+ * Estilos del componente Card
+ * Diseño con animaciones hover
+ */
+.card {
+  position: relative;
+  min-width: 150px;
+  height: 225px;
+  cursor: pointer;
+  transition: transform 0.3s ease, z-index 0s;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card--large {
+  min-width: 200px;
+  height: 300px;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.card:hover .card__image {
+  transform: scale(1.05);
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    transparent 100%
+  );
+  padding: 40px 10px 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card__overlay {
+  opacity: 1;
+}
+
+.card__actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.card__btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card__btn svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+}
+
+.card__btn:hover {
+  border-color: #fff;
+  background: #fff;
+}
+
+.card__btn:hover svg {
+  fill: #000;
+}
+
+.card__btn--play {
+  background: #fff;
+}
+
+.card__btn--play svg {
+  fill: #000;
+}
+
+.card__btn--play:hover {
+  transform: scale(1.1);
+}
+
+.card__btn--added {
+  border-color: #46d369;
+  background: rgba(69, 211, 105, 0.2);
+}
+
+.card__btn--added svg {
+  fill: #46d369;
+}
+
+.card__btn--added:hover {
+  background: #46d369;
+}
+
+.card__btn--added:hover svg {
+  fill: #000;
+}
+
+.card__btn--expand {
+  margin-left: auto;
+  transform: rotate(180deg);
+}
+
+.card__btn--expand:hover {
+  transform: rotate(180deg) scale(1.1);
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card__title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+
+.card__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #46d369;
+  font-weight: 500;
+}
+
+.card__star {
+  width: 14px;
+  height: 14px;
+  fill: #46d369;
+}
+
+.card__year {
+  color: #a3a3a3;
+}
+
+.card__hd {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0 4px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
+}
+
+.card__genres {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.card__genre {
+  font-size: 0.7rem;
+  color: #a3a3a3;
+}
+
+.card__genre::after {
+  content: '•';
+  margin-left: 8px;
+}
+
+.card__genre:last-child::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-width: 110px;
+    height: 165px;
+  }
+
+  .card--large {
+    min-width: 130px;
+    height: 200px;
+  }
+
+  .card__overlay {
+    display: none;
+  }
+}
