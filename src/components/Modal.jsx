@@ -36,13 +36,13 @@ const Modal = () => {
         </button>
 
         <div className="modal__video-container">
-          <iframe
-            className="modal__video"
-            src={`${selectedMovie.trailer_url}?autoplay=1&mute=1`}
-            title={selectedMovie.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+          <img
+            className="modal__poster"
+            src={selectedMovie.backdrop_path 
+              ? `https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`
+              : `https://image.tmdb.org/t/p/w780${selectedMovie.poster_path}`
+            }
+            alt={selectedMovie.title || selectedMovie.name}
           />
         </div>
 
